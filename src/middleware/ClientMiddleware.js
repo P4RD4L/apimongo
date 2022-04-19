@@ -18,7 +18,6 @@ module.exports = {
         } catch(err){
             return response.status(500).json({error: err.message});
         }
-
         next();
     }
 }

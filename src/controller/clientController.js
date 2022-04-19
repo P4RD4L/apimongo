@@ -1,7 +1,7 @@
+const bcrypt = require("bcryptjs/dist/bcrypt");
 const {response} = require("express");
 const res = require("express/lib/response");
 const { v4: uuid } = require("uuid");
-const client = require("../models/client");
 const Client = require("../models/client");
 
 module.exports = {
@@ -16,18 +16,20 @@ module.exports = {
 
     async store(request, response) {
         const { name, email } = request.body;
+        const hashPass = await bcrypt.hash(request.body.password, 8);
 
-        if(!name || !email) {
-            return response.status(400).json({ error: "Missing name or mail" });
+        if(!name || !email || !hashPass) {
+            return response.status(400).json({ error: "Missing name or mail or password" });
         }
+        
         const client = new Client({
             _id: uuid(),
             name,
             email,
+            password: hashPass
         })
         try{
             await client.save();
-
             return response.status(201).json({message: "Client add sucessfully"});
         } catch(err){
             response.status(400).json({error: err.message});
