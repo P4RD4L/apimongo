@@ -5,7 +5,7 @@ const LoginController = require("./controller/LoginController");
 const ClientMiddleware = require("./middleware/ClientMiddleware");
 const AuthMiddleware = require("./middleware/AuthMiddleware");
 
-routes.get("/", (request, response) => response.send("HELLO WORLD"));
+routes.get("/", (request, response) => response.send("Hello World"));
 routes.get("/client", AuthMiddleware, clientController.index);
 
 routes.post("/client", clientController.store);
