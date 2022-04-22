@@ -11,6 +11,10 @@ routes.get("/client", AuthMiddleware, clientController.index);
 routes.post("/client", clientController.store);
 routes.post("/login", LoginController.index);
 
+//TESTE
+routes.post("/login-token", LoginTokenController.index);
+//TESTE
+
 routes.put("/client/:id", ClientMiddleware.validateId, clientController.update);
 
 routes.delete("/client/:id", ClientMiddleware.validateId, clientController.delete);
