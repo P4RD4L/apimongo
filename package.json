@@ -1,12 +1,16 @@
 {
   "name": "apimongo",
   "version": "1.0.0",
+  "description": "API",
   "main": "index.js",
+  "repository": "https://github.com/P4RD4L/apimongo.git",
+  "author": "Paulo <paulo.rdecampos@gmail.com>",
+  "license": "MIT",
+  "private": true,
   "scripts": {
     "start": "node src/server",
     "dev": "nodemon --watch src src/server.js"
   },
-  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
