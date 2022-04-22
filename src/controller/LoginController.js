@@ -21,10 +21,8 @@ class LoginController{
             })
         }
         return res.status(200).json({
-            client: {
-                name: clientExist.name,
-                email: clientExist.email
-            },
+            name: clientExist.name,
+            email: clientExist.email,
             token: jwt.sign(
                 {id: clientExist._id},
                 config.secret,
