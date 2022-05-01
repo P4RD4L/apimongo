@@ -34,5 +34,4 @@ module.exports = async (req, res, next) => {
             message: "Token inválido"
         })
     }
-
 }

@@ -8,6 +8,7 @@ const taskController = require("./controller/taskController");
 
 routes.get("/", (request, response) => response.send("Hello world"));
 routes.get("/client", AuthMiddleware, clientController.index);
+routes.get("/tasks", taskController.index);
 
 routes.post("/client", clientController.store);
 routes.post("/login", LoginController.index);

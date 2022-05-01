@@ -2,6 +2,15 @@ const { v4: uuid } = require("uuid");
 const Task = require("../models/task")
 
 module.exports = {
+    async index(request, response){
+        try {
+            const tasks = await Task.find();
+            return response.status(200).json({tasks});
+        } catch(err){
+            response.status(500).json({error: err.message});
+        }
+    },
+
     async store(request, response) {
         const { task } = request.body;
 
