@@ -4,12 +4,14 @@ const clientController = require("./controller/clientController");
 const LoginController = require("./controller/LoginController");
 const ClientMiddleware = require("./middleware/ClientMiddleware");
 const AuthMiddleware = require("./middleware/AuthMiddleware");
+const taskController = require("./controller/taskController");
 
 routes.get("/", (request, response) => response.send("Hello world"));
 routes.get("/client", AuthMiddleware, clientController.index);
 
 routes.post("/client", clientController.store);
 routes.post("/login", LoginController.index);
+routes.post("/addtask", taskController.store);
 
 //TESTE
 //routes.post("/login-token", LoginTokenController.index);

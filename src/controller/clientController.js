@@ -1,6 +1,4 @@
 const bcrypt = require("bcryptjs/dist/bcrypt");
-const {response} = require("express");
-const res = require("express/lib/response");
 const { v4: uuid } = require("uuid");
 const Client = require("../models/client");
 
