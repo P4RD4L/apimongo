@@ -9,6 +9,13 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    owner: {
+        type: String,
+        required: true,
+    },
+    userAllowed: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now,

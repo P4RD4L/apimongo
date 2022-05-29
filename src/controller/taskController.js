@@ -12,15 +12,20 @@ module.exports = {
     },
 
     async store(request, response) {
-        const { task } = request.body;
+        const { task, owner } = request.body;
 
         if(!task) {
             return response.status(400).json({ error: "Missing task." });
+        }
+
+        if(!owner) {
+            return response.status(400).json({ error: "Missing owner." });
         }
         
         const tasks = new Task({
             _id: uuid(),
             task,
+            owner
         })
         try{
             await tasks.save();
