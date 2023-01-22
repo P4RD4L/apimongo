@@ -14,15 +14,15 @@ module.exports = connectdb;
 
 const mongoose = require("mongoose");
 
-async function connectdb() {
+function connectdb() {
     try {
         mongoose.set("strictQuery", true);
 
-        await mongoose.connect(process.env.DATABASE_URL);
+        mongoose.connect(process.env.DATABASE_URL);
         console.log("CONNECTED");
         
     } catch (error) {
-        console.log('ERROR :${error}');
+        console.log({error});
     }
 }
 module.exports = connectdb;
