@@ -18,8 +18,8 @@ function connectdb() {
     try {
         mongoose.set("strictQuery", true);
 
-        mongoose.connect(process.env.DATABASE_URL);
-        //mongoose.connect("mongodb+srv://usertest:Margot20022@apimongodb.litpd.mongodb.net/apimongodb?retryWrites=true&w=majority");
+        //mongoose.connect(process.env.DATABASE_URL);
+        mongoose.connect("mongodb+srv://usertest:Margot20022@apimongodb.litpd.mongodb.net/apimongodb?retryWrites=true&w=majority");
         console.log("CONNECTED");
         
     } catch (error) {
